@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+  <section class="hero is-warning is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+            <form action="/modificargenero/" method="post" class="box">
+              <div class="field">
+                <label for="" class="label">Nombre del Genero</label>
+                <div class="control has-icons-left">
+                  <input type="text" name="nombre_genero" value="{{generos.nombre_genero}}" class="input" >
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-envelope"></i>
+                  </span>
+                </div>
+                </div>
+                <div class="field">
+                  <button class="button is-danger" name="id_genero" value="{{generos.id_genero}}">
+                    Registrar Genero
+                  </button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% endblock %}

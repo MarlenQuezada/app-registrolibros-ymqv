@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block content %}
+  <section class="hero is-warning is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+            <form action="/registrareditorial" method="post" class="box">
+              <div class="field">
+                <label for="" class="label">Nombre de la Editorial</label>
+                <div class="control has-icons-left">
+                  <input type="text" name="nombre_editorial" class="input" >
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-envelope"></i>
+                  </span>
+                </div>
+                </div>
+                <div class="field">
+                  <button class="button is-danger">
+                    Registrar Editorial
+                  </button>
+                </div>
+            </form>
+          </div>
+        </div>
+        <div class="container">
+          <div class="columns is-centered">
+            <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+              <form action="/leerEditorial" method="post">
+                  <p>{{db}}</p>
+                <table>
+                  <caption>{% for editoriales in constlta %}</caption>
+                  <thead>
+                    <tr>
+                      <th>     Editorial    </th>
+                      <th>               </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{editoriales.nombre_editorial}}</td>
+                      <td><a href="/eliminareditorial/{{editoriales.id_editorial}}">Eliminar</a>
+                      <a href="/editareditorial/{{editoriales.id_editorial}}">EDITAR</a>
+                    </tr>
+                    {% endfor %}
+                    
+                  </tbody>
+                </table>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% endblock %}

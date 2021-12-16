@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <section class="hero is-warning is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+            <form action="/registrargenero" method="post" class="box">
+              <div class="field">
+                <label for="" class="label">Nombre del Genero</label>
+                <div class="control has-icons-left">
+                  <input type="text" name="nombre_genero" class="input" >
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-envelope"></i>
+                  </span>
+                </div>
+                </div>
+                <div class="field">
+                  <button class="button is-danger">
+                    Registrar Genero
+                  </button>
+                </div>
+            </form>
+          </div>
+        </div>
+        <div class="container">
+          <div class="columns is-centered">
+            <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+              <form action="/leerGenero" method="post">
+                  <p>{{db}}</p>
+                <table>
+                  <caption>{% for generos in constlta %}</caption>
+                  <thead>
+                    <tr>
+                      <th>     Genero    </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{generos.nombre_genero}}</td>
+                      <td><a href="/eliminargenero/{{generos.id_genero}}">Eliminar</a>
+                        <a href="/editargenero/{{generos.id_genero}}">EDITAR</a>
+                    </tr>
+                    {% endfor %}
+                    
+                  </tbody>
+                </table>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  
+
+  {% endblock %}

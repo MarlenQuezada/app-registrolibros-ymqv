@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+  <section class="hero is-warning  is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+            <form action="/modificarautor/" method="post" class="box">
+              <div class="field">
+                <label for="" class="label">Nombre de autor</label>
+                <div class="control has-icons-left">
+                  <input type="text" name="nombre_autor" value="{{autores.nombre_autor}}" class="input" >
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-envelope"></i>
+                  </span>
+                </div>
+                </div>
+                <div class="field">
+                  <label for="" class="label">Fecha de Nacimiento</label>
+                  <div class="control has-icons-left">
+                    <input type="date" name="fecha_nac" value="{{autores.fecha_nac}}" class="input">
+                    <span class="icon is-small is-left">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                </div>
+                </div>
+                <div class="field">
+                    <label for="" class="label">Nacionalidad</label>
+                    <div class="control has-icons-left">
+                    <input type="text" name="nacionalidad" value="{{autores.nacionalidad}}" class="input">
+                    <span class="icon is-small is-left">
+                        <i class="fa fa-lock"></i>
+                    </span>
+                </div>
+                </div>
+                
+                <div class="field">
+                  <button class="button is-danger" name="id_autor" value="{{autores.id_autor}}">
+                    Registrar Autor
+                  </button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% endblock %}

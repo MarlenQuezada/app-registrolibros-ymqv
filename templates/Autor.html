@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+{% block content %}
+  <section class="hero is-warning is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+            <form action="/registrarautor" method="post" class="box">
+              <div class="field">
+                <label for="" class="label">Nombre de autor</label>
+                <div class="control has-icons-left">
+                  <input type="text" name="nombre_autor" class="input" >
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-envelope"></i>
+                  </span>
+                </div>
+                </div>
+                <div class="field">
+                  <label for="" class="label">Fecha de Nacimiento</label>
+                  <div class="control has-icons-left">
+                    <input type="date" name="fecha_nac" class="input">
+                    <span class="icon is-small is-left">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                </div>
+                </div>
+                <div class="field">
+                    <label for="" class="label">Nacionalidad</label>
+                    <div class="control has-icons-left">
+                    <input type="text" name="nacionalidad" class="input">
+                    <span class="icon is-small is-left">
+                        <i class="fa fa-lock"></i>
+                    </span>
+                </div>
+                </div>
+                
+                <div class="field">
+                  <button class="button is-danger">
+                    Registrar Autor
+                  </button>
+                </div>
+            </form>
+          </div>
+        </div>
+        <div class="container">
+          <div class="columns is-centered">
+            <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+              <form action="/leerAutor" method="post">
+                  <p>{{db}}</p>
+                <table>
+                  <caption>{% for autores in constlta %}</caption>
+                  <thead>
+                    <tr>
+                      <th>     Nombre     </th>
+                      <th>     Fecha Nacimiento    </th>
+                      <th>     Nacionalidad    </th>
+                      <th>               </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{autores.nombre_autor}}</td>
+                      <td>{{autores.fecha_nac}}</td>
+                      <td>{{autores.nacionalidad}}</td>
+                      <td><a href="/eliminarautor/{{autores.id_autor}}">Eliminar</a>
+                        <a href="/editarautor/{{autores.id_autor}}">EDITAR</a>
+                    </tr>
+                    {% endfor %}
+                    
+                  </tbody>
+                </table>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% endblock %}
